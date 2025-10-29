@@ -1,5 +1,6 @@
 import os
 import time
+import copy
 
 def printBoard(Board):
     for count in Board:
@@ -15,26 +16,21 @@ def DenyMove(waitTime):
 def Position(Board, Player):
     Board[Player["yPos"]][Player["xPos"]] = Player["char"]
 
-def PlayerInput(Board, Player, waitTime, Initial):
+def Restart(InitialBoard, Board, InitialPlayer, Player):
+    Board[:] = copy.deepcopy(InitialBoard)
+    Player.clear()
+    Player.update(copy.deepcopy(InitialPlayer))
+
+def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
     print("\nPress W, A, S, D or I, J, K, L to move")
     print("Press ! to Restart and Q to quit")
-    print('INVENTORY:')
     print("\nCurrent Mushrooms: ", Player["mushrooms"])
-    print(f'Axes: {Player['axe']}')
     moveset = input("Enter move:")
     for move in moveset: 
         if move.lower() == "w" or move.lower() == "i":
             if Board[Player["yPos"] - 1][Player["xPos"]] == ".":
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["yPos"] -= 1
-            elif Board[Player["yPos"]-1][Player["xPos"]] == "T": #for moving into a tree
-                if Player["axe"] > 0: #checks PlayerDict if u have axe
-                    Board[Player["yPos"]][Player["xPos"]] = "."
-                    Player["yPos"] -= 1
-                    Player["axe"] -= 1
-                else:
-                    DenyMove(waitTime)
-
             elif Board[Player["yPos"] - 1][Player["xPos"]] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
@@ -54,14 +50,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
             if Board[Player["yPos"]][Player["xPos"] - 1] == ".":
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["xPos"] -= 1
-            elif Board[Player["yPos"]][Player["xPos"]-1] == "T": #for moving into a tree
-                if Player["axe"] > 0: #checks PlayerDict if u have axe
-                    Board[Player["yPos"]][Player["xPos"]] = "."
-                    Player["xPos"] -= 1
-                    Player["axe"] -= 1
-                else:
-                    DenyMove(waitTime)
-
             elif Board[Player["yPos"]][Player["xPos"] - 1] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
@@ -81,14 +69,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
             if Board[Player["yPos"] + 1][Player["xPos"]] == ".":
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["yPos"] += 1
-            elif Board[Player["yPos"]+1][Player["xPos"]] == "T": #for moving into a tree
-                if Player["axe"] > 0: #checks PlayerDict if u have axe
-                    Board[Player["yPos"]][Player["xPos"]] = "."
-                    Player["yPos"] += 1
-                    Player["axe"] -= 1
-                else:
-                    DenyMove(waitTime)
-
             elif Board[Player["yPos"] + 1][Player["xPos"]] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
@@ -108,14 +88,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
             if Board[Player["yPos"]][Player["xPos"] + 1] == ".":
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["xPos"] += 1
-            elif Board[Player["yPos"]][Player["xPos"]+1] == "T": #for moving into a tree
-                if Player["axe"] > 0: #checks PlayerDict if u have axe
-                    Board[Player["yPos"]][Player["xPos"]] = "."
-                    Player["xPos"] += 1
-                    Player["axe"] -= 1
-                else:
-                    DenyMove(waitTime)
-
             elif Board[Player["yPos"]][Player["xPos"] + 1] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
@@ -132,9 +104,11 @@ def PlayerInput(Board, Player, waitTime, Initial):
                 DenyMove(waitTime)
 
         if move == "!":
-            Board[Player["yPos"]][Player["xPos"]] = "."
-            Player["xPos"] = Initial[1]
-            Player["yPos"] = Initial[2]
+            Restart(InitialBoard, Board, InitialPlayer, Player)
+            clearConsole()
+            Position(Board, Player)
+            printBoard(Board)
+            continue
 
         if move.lower() == "q":
             print("Goodbye")

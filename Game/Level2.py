@@ -8,6 +8,7 @@ Player = {
     "mushrooms": 0,
     "char": "L",
     'axe': 0,
+    'flamethrower' : 0
 }
 
 
@@ -19,17 +20,25 @@ Board = [
     ["T", "T", "T", "T", "T", "T", "T", "T", "T", "T"]
 ]
 
-Initial = ([
+InitialPlayer = { 
+    "xPos": 2,
+    "yPos": 2,
+    "mushrooms": 0,
+    "char": "L",
+    'axe': 0,
+    'flamethrower' : 0
+}
+
+InitialBoard = [
     ["T", "T", "T", "T", "T", "T", "T", "T", "T", "T"],
     ["T", ".", ".", ".", ".", ".", ".", ".", ".", "T"],
-    ["T", ".", ".", ".", ".", ".", ".", ".", ".", "T"],
+    ["T", ".", ".", "+", "+", "~", "~", "~", "+", "T"],
     ["T", ".", ".", ".", ".", ".", ".", ".", ".", "T"],
     ["T", "T", "T", "T", "T", "T", "T", "T", "T", "T"]
-], Player["xPos"], Player["yPos"])
-
+]
 
 while True:
+    Scripts.clearConsole()
     Scripts.Position(Board, Player)
     Scripts.printBoard(Board)
-    Scripts.PlayerInput(Board, Player, waitTime, Initial)
-    Scripts.clearConsole()
+    Scripts.PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard)
