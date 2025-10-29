@@ -7,6 +7,7 @@ Player = {
     "yPos": 2,
     "mushrooms": 0,
     "char": "L",
+    'axe': 0,
 }
 
 
@@ -30,5 +31,7 @@ Initial = ([
 while True:
     Scripts.Position(Board, Player)
     Scripts.printBoard(Board)
+    print('INVENTORY:')
+    print(f'Axes: {Player['axe']}')
     Scripts.PlayerInput(Board, Player, waitTime, Initial)
     Scripts.clearConsole()
