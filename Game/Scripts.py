@@ -18,7 +18,9 @@ def Position(Board, Player):
 def PlayerInput(Board, Player, waitTime, Initial):
     print("\nPress W, A, S, D or I, J, K, L to move")
     print("Press ! to Restart and Q to quit")
+    print('INVENTORY:')
     print("\nCurrent Mushrooms: ", Player["mushrooms"])
+    print(f'Axes: {Player['axe']}')
     moveset = input("Enter move:")
     for move in moveset: 
         if move.lower() == "w" or move.lower() == "i":
