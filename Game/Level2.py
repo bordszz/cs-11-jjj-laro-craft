@@ -7,6 +7,8 @@ Player = {
     "yPos": 2,
     "mushrooms": 0,
     "char": "L",
+    "axe": 0,
+    "flamethrower": 0,
 }
 
 
