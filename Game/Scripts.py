@@ -7,7 +7,7 @@ def printBoard(Board):
         print(" ".join(count))
 
 def clearConsole():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls')
 
 def DenyMove(waitTime):
     print("Cannot move!!")
@@ -29,14 +29,18 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
     for move in moveset: 
         if move.lower() == "w" or move.lower() == "i":
             if Board[Player["yPos"] - 1][Player["xPos"]] == ".":
-                Board[Player["yPos"]][Player["xPos"]] = "." 
-                Player["yPos"] -= 1
+                if InitialBoard[Player["yPos"]][Player["xPos"]] == "+":
+                    Board[Player["yPos"]][Player["xPos"]] = "."
+                    Player["yPos"] -= 1
+                else:
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
+                    Player["yPos"] -= 1
             elif Board[Player["yPos"] - 1][Player["xPos"]] == "+":
                 Player["mushrooms"] += 1
-                Board[Player["yPos"]][Player["xPos"]] = "."
+                Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
                 Player["yPos"] -= 1
             elif Board[Player["yPos"] - 1][Player["xPos"]] == "~":
-                Board[Player["yPos"]][Player["xPos"]] = "."
+                Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
                 Player["yPos"] -= 1
                 Position(Board, Player)
                 clearConsole()
@@ -48,9 +52,13 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
             
         if move.lower() == "a" or move.lower() == "j":
             if Board[Player["yPos"]][Player["xPos"] - 1] == ".":
-                Board[Player["yPos"]][Player["xPos"]] = "."
-                Player["xPos"] -= 1
-            elif Board[Player["yPos"]][Player["xPos"] - 1] == "+": 
+                if InitialBoard[Player["yPos"]][Player["xPos"]] == "+":
+                    Board[Player["yPos"]][Player["xPos"]] = "."
+                    Player["xPos"] -= 1
+                else:
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
+                    Player["xPos"] -= 1
+            elif Board[Player["yPos"]][Player["xPos"] - 1] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["xPos"] -= 1
@@ -67,13 +75,17 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
 
         if move.lower() == "s" or move.lower() == "k":
             if Board[Player["yPos"] + 1][Player["xPos"]] == ".":
-                Board[Player["yPos"]][Player["xPos"]] = "."
-                Player["yPos"] += 1
-            elif Board[Player["yPos"] + 1][Player["xPos"]] == "+": 
+                if InitialBoard[Player["yPos"]][Player["xPos"]] == "+":
+                    Board[Player["yPos"]][Player["xPos"]] = "."
+                    Player["yPos"] += 1
+                else:
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
+                    Player["yPos"] += 1
+            elif Board[Player["yPos"] + 1][Player["xPos"]] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["yPos"] += 1
-            elif Board[Player["yPos"] + 1][Player["xPos"]] == "~": 
+            elif Board[Player["yPos"] + 1][Player["xPos"]] == "~":
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["yPos"] += 1
                 Position(Board, Player)
@@ -83,16 +95,22 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 quit()
             else:
                 DenyMove(waitTime)
-
+                
         if move.lower() == "d" or move.lower() == "l":
-            if Board[Player["yPos"]][Player["xPos"] + 1] == ".": 
+            if Board[Player["yPos"]][Player["xPos"] + 1] == ".":
+                if InitialBoard[Player["yPos"]][Player["xPos"]] == "+":
+                    Board[Player["yPos"]][Player["xPos"]] = "."
+                    Player["xPos"] += 1
+                else:
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
+                    Player["xPos"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["xPos"] += 1
-            elif Board[Player["yPos"]][Player["xPos"] + 1] == "+": 
+            elif Board[Player["yPos"]][Player["xPos"] + 1] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["xPos"] += 1
-            elif Board[Player["yPos"]][Player["xPos"] + 1] == "~": 
+            elif Board[Player["yPos"]][Player["xPos"] + 1] == "~":
                 Board[Player["yPos"]][Player["xPos"]] = "."
                 Player["xPos"] += 1
                 Position(Board, Player)
