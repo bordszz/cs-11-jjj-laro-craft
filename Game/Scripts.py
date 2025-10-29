@@ -51,14 +51,14 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 print("Game Over...")
                 quit()
 
-            elif Board[Player["yPos"] - 1][Player["xPos"]] == "A": #moving into an Axe
+            elif Board[Player["yPos"] - 1][Player["xPos"]] == "A" or Board[Player["yPos"]-1][Player["xPos"]] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
                     Player["yPos"] -= 1
                 else:
                     Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]] 
                     Player["yPos"] -= 1
-                
+
             else:
                 DenyMove(waitTime)
 
@@ -84,7 +84,7 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 print("Game Over...")
                 quit()
 
-            elif Board[Player["yPos"]][Player["xPos"] - 1] == "A": #moving into an Axe
+            elif Board[Player["yPos"]][Player["xPos"] - 1] == "A" or Board[Player["yPos"]][Player["xPos"] - 1] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
                     Player["xPos"] -= 1
@@ -116,7 +116,8 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 printBoard(Board)
                 print("Game Over...")
                 quit()
-            elif Board[Player["yPos"] + 1][Player["xPos"]] == "A": #moving into an Axe
+
+            elif Board[Player["yPos"] + 1][Player["xPos"]] == "A" or Board[Player["yPos"] + 1][Player["xPos"]] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
                     Player["yPos"] += 1
@@ -147,7 +148,7 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 printBoard(Board)
                 print("Game Over...")
                 quit()
-            elif Board[Player["yPos"]][Player["xPos"]+1] == "A": #moving into an Axe
+            elif Board[Player["yPos"]][Player["xPos"]+1] == "A" or Board[Player["yPos"]][Player["xPos"]+1] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
                     Player["xPos"] += 1
@@ -159,10 +160,17 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
 
         #PICKUP FUNCTION
         elif move.lower() == 'e': 
-            if InitialBoard[Player["yPos"]][Player["xPos"]] == 'A': #PICKING UP AN AXE
-                Player['axe'] += 1
-            elif InitialBoard[Player["yPos"]][Player["xPos"]] == 'F': #PICKING UP AN FLAMETHROWER
-                Player['flamethrower'] += 1
+            if Player['axe'] + Player['flamethrower'] == 0:
+                if InitialBoard[Player["yPos"]][Player["xPos"]] == 'A': #PICKING UP AN AXE
+                    Player['axe'] += 1
+                    #i want to update the InitialBoard, but it wil mess up the restart function. but if u dont mind that, uncomment this code
+                    InitialBoard[Player["yPos"]][Player["xPos"]] = '.'
+                elif InitialBoard[Player["yPos"]][Player["xPos"]] == 'F': #PICKING UP A FLAMETHROWER
+                    Player['flamethrower'] += 1
+                    #i want to update the InitialBoard, but it wil mess up the restart function. but if u dont mind that, uncomment this code
+                    InitialBoard[Player["yPos"]][Player["xPos"]] = '.'
+                else:
+                    pass
             else:
                 pass
 
