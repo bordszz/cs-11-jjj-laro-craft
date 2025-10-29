@@ -50,7 +50,11 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 printBoard(Board)
                 print("Game Over...")
                 quit()
-
+            elif Board[Player["yPos"] - 1][Player["xPos"]] == "T" : #moving into a tree
+                if Player['axe'] == 1:
+                    Player['axe'] -= 1
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]] 
+                    Player["yPos"] -= 1
             elif Board[Player["yPos"] - 1][Player["xPos"]] == "A" or Board[Player["yPos"]-1][Player["xPos"]] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
@@ -83,7 +87,11 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 printBoard(Board)
                 print("Game Over...")
                 quit()
-
+            elif Board[Player["yPos"]][Player["xPos"] - 1] == "T" : #moving into a tree
+                if Player['axe'] == 1:
+                    Player['axe'] -= 1
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]] 
+                    Player["xPos"] -= 1
             elif Board[Player["yPos"]][Player["xPos"] - 1] == "A" or Board[Player["yPos"]][Player["xPos"] - 1] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
@@ -116,7 +124,11 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 printBoard(Board)
                 print("Game Over...")
                 quit()
-
+            elif Board[Player["yPos"] + 1][Player["xPos"]] == "T" : #moving into a tree
+                if Player['axe'] == 1:
+                    Player['axe'] -= 1
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]] 
+                    Player["yPos"] += 1
             elif Board[Player["yPos"] + 1][Player["xPos"]] == "A" or Board[Player["yPos"] + 1][Player["xPos"]] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
@@ -148,6 +160,12 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 printBoard(Board)
                 print("Game Over...")
                 quit()
+
+            elif Board[Player["yPos"]][Player["xPos"]+1] == "T" : #moving into a tree
+                if Player['axe'] == 1:
+                    Player['axe'] -= 1
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]] 
+                    Player["xPos"] += 1
             elif Board[Player["yPos"]][Player["xPos"]+1] == "A" or Board[Player["yPos"]][Player["xPos"]+1] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."

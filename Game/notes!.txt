@@ -1,0 +1,5 @@
+version issues/deficiencies rn:
+- RESTART FUNCTION DOES NOT PROPERLY WORK IN THIS VERSION!
+- chopping with an axe lets u past, but it becomes a one way path (did not rly cut the tree)
+- have not implemented using a flamethrower on a tree
+
