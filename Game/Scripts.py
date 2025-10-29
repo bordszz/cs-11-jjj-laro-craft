@@ -34,11 +34,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
                     Player["axe"] -= 1
                 else:
                     DenyMove(waitTime)
-            
-            elif Board[Player["yPos"] - 1][Player["xPos"]] == "A": #run into an axe (no pickup option yet js eats it)
-                Board[Player["yPos"]][Player["xPos"]] = "."
-                Player["yPos"] -= 1
-                Player['axe'] += 1
 
             elif Board[Player["yPos"] - 1][Player["xPos"]] == "+":
                 Player["mushrooms"] += 1
@@ -67,11 +62,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
                 else:
                     DenyMove(waitTime)
 
-            elif Board[Player["yPos"]][Player["xPos"] - 1] == "A": #run into an axe (no pickup option yet js eats it)
-                Board[Player["yPos"]][Player["xPos"]] = "."
-                Player["xPos"] -= 1
-                Player['axe'] += 1
-
             elif Board[Player["yPos"]][Player["xPos"] - 1] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
@@ -99,11 +89,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
                 else:
                     DenyMove(waitTime)
 
-            elif Board[Player["yPos"] + 1][Player["xPos"]] == "A": #run into an axe (no pickup option yet js eats it)
-                Board[Player["yPos"]][Player["xPos"]] = "."
-                Player["yPos"] += 1
-                Player['axe'] += 1
-
             elif Board[Player["yPos"] + 1][Player["xPos"]] == "+":
                 Player["mushrooms"] += 1
                 Board[Player["yPos"]][Player["xPos"]] = "."
@@ -130,11 +115,6 @@ def PlayerInput(Board, Player, waitTime, Initial):
                     Player["axe"] -= 1
                 else:
                     DenyMove(waitTime)
-
-            elif Board[Player["yPos"]][Player["xPos"]+1] == "A": #run into an axe (no pickup option yet js eats it)
-                Board[Player["yPos"]][Player["xPos"]] = "."
-                Player["xPos"] += 1
-                Player['axe'] += 1
 
             elif Board[Player["yPos"]][Player["xPos"] + 1] == "+":
                 Player["mushrooms"] += 1
