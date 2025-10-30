@@ -55,6 +55,9 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                     Player['axe'] -= 1
                     Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]] 
                     Player["yPos"] -= 1
+                # elif for flamethrowers when implemented
+                else:
+                    DenyMove()
             elif Board[Player["yPos"] - 1][Player["xPos"]] == "A" or Board[Player["yPos"]-1][Player["xPos"]] == "F": #moving into an A or F
                 if InitialBoard[Player["yPos"]][Player["xPos"]] == "+": #if previous position is on a mushroom
                     Board[Player["yPos"]][Player["xPos"]] = "."
