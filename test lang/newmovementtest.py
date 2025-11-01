@@ -22,6 +22,10 @@ def DenyPickup(waitTime):
     print("No item under you!!")
     time.sleep(waitTime)
 
+def InvenFull(waitTime):
+    print('You already have an item in ur hand')
+    time.sleep(waitTime)
+
 def UsedAxe(waitTime):
     print("1 Axe was used")
     time.sleep(waitTime)
@@ -29,8 +33,9 @@ def UsedAxe(waitTime):
 def Position(Board, Player):
     Board[Player["yPos"]][Player["xPos"]] = Player["char"]
 
-def Restart(RestartBoard, Board, InitialPlayer, Player):
+def Restart(RestartBoard, Board, InitialPlayer, Player, InitialBoard):
     Board[:] = copy.deepcopy(RestartBoard)
+    InitialBoard[:] = copy.deepcopy(RestartBoard)  #fixed so it resets items n mushrooms that were mutated in previous run
     Player.clear()
     Player.update(copy.deepcopy(InitialPlayer))
 
@@ -41,7 +46,7 @@ def ConsumeMushroom(InitialBoard, Player):
     else:
         pass
 
-def PickedUp(InitalBoard, Player):
+def PickedUp(InitialBoard, Player):
     if InitialBoard[Player["yPos"]][Player["xPos"]] in ('A', 'F'):
         InitialBoard[Player["yPos"]][Player["xPos"]] = '.'
     else:
@@ -66,6 +71,8 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                     InitialBoard[Player["yPos"] + y_mvmnt[move.lower()]][Player["xPos"]] = '.'
                     Player['axe'] -= 1
                     UsedAxe(waitTime)
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
+                    Player["yPos"] += y_mvmnt[move.lower()]
                 else:
                     DenyMove(waitTime)
 
@@ -82,6 +89,8 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                     InitialBoard[Player["yPos"]][Player["xPos"]+ x_mvmnt[move.lower()]] = '.'
                     Player['axe'] -= 1
                     UsedAxe(waitTime)
+                    Board[Player["yPos"]][Player["xPos"]] = InitialBoard[Player["yPos"]][Player["xPos"]]
+                    Player["xPos"] += x_mvmnt[move.lower()]
                 else:
                     DenyMove(waitTime)
 
@@ -92,7 +101,9 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
 
         #PICKUP FUNCTION
         if move.lower() == 'e': 
-            if InitialBoard[Player["yPos"]][Player["xPos"]] == 'A':
+            if Player['axe'] >= 1 or Player['flamethrower'] >= 1:
+                InvenFull(waitTime)
+            elif InitialBoard[Player["yPos"]][Player["xPos"]] == 'A':
                 PickedUp(InitialBoard, Player)
                 Player['axe'] += 1
             elif InitialBoard[Player["yPos"]][Player["xPos"]] == 'F':
@@ -104,7 +115,7 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
 
         #RESTART
         if move.lower() == "!":
-            Restart(RestartBoard, Board, InitialPlayer, Player)
+            Restart(RestartBoard, Board, InitialPlayer, Player, InitialBoard)
             clearConsole()
             Position(Board, Player)
             printBoard(Board)
