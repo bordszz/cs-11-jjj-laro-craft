@@ -100,7 +100,7 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
 
 
         #PICKUP FUNCTION
-        if move.lower() == 'e': 
+        elif move.lower() == 'e': 
             if Player['axe'] >= 1 or Player['flamethrower'] >= 1:
                 InvenFull(waitTime)
             elif InitialBoard[Player["yPos"]][Player["xPos"]] == 'A':
@@ -114,7 +114,7 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
                 
 
         #RESTART
-        if move.lower() == "!":
+        elif move.lower() == "!":
             Restart(RestartBoard, Board, InitialPlayer, Player, InitialBoard)
             clearConsole()
             Position(Board, Player)
@@ -122,7 +122,7 @@ def PlayerInput(Board, Player, waitTime, InitialPlayer, InitialBoard):
             continue
 
         #QUITTING
-        if move.lower() == "q":
+        elif move.lower() == "q":
             print("Goodbye")
             quit()
 
