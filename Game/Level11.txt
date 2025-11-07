@@ -1,0 +1,16 @@
+r = 15, c = 15
+TTTTTTTTTTTTTTT
+T+T~......~Tx+T
+TTT~......~TTTT
+T~~~..x...~~~~T
+T.............T
+T....TTTTT....T
+T....T.L.T....T
+T.RR.T...T.RR.T
+T....T.x.T....T
+T....TTTTT....T
+T.............T
+T~~~.....~~~~~T
+TTT~.....~TTTTT
+T+T~.....~Txx+T
+TTTTTTTTTTTTTTT

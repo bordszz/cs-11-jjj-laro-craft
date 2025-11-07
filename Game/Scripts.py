@@ -169,6 +169,7 @@ def NoMoves(Player, DisplayBoard):
 def PlayerInput(Player, InitialPlayer, DisplayBoard, ToggleBoard, InitialBoard):
     print("\nPress W, A, S, D or I, J, K, L to move")
     print("Press ! to Restart or Q to quit")
+    print("Press P when on top of an item to pick it up")
     print("\nMushrooms Collected:", Player["mushroom"], "out of", Player["win"])
 
     if Player["axe"] == True:
@@ -187,7 +188,7 @@ def PlayerInput(Player, InitialPlayer, DisplayBoard, ToggleBoard, InitialBoard):
     else:
         print("\nEquippable Item on tile: None")
 
-    moveset = input("Enter move:").lower()
+    moveset = input("Enter move/s:").lower()
     
     for move in moveset:
         if move not in ("w", "a", "s", "d", "!", "q", "p"):
