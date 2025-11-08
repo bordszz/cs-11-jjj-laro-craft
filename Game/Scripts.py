@@ -57,8 +57,8 @@ if data[0] != None:
                 RowConstuctor.append("　")
             if y == "T":
                 RowConstuctor.append("🌲")
-            if y == "R":
-                RowConstuctor.append("🪨 ")
+            if y == "R": 
+                RowConstuctor.append("🪨") #MACOS
             if y == "~":
                 RowConstuctor.append("🟦")
             if y == "-":
@@ -108,7 +108,7 @@ def printBoard(Board):
         print(" ".join(line))
 
 def clearConsole():
-    os.system('cls')
+    os.system('clear') #MACOS
 
 def Position(Board, Player):
     Board[Player["yPos"]][Player["xPos"]] = "🧑"
@@ -186,6 +186,7 @@ def TermPrint(DisplayBoard, Cleared):
 def PlayerInput(Player, InitialPlayer, DisplayBoard, ToggleBoard, InitialBoard):
     print("\nPress W, A, S, D or I, J, K, L to move")
     print("Press ! to Restart or Q to quit")
+    print("Press P when on top of an item to pick it up")
     print("\nMushrooms Collected:", Player["mushroom"], "out of", Player["win"])
 
     if Player["axe"] == True:
@@ -204,7 +205,7 @@ def PlayerInput(Player, InitialPlayer, DisplayBoard, ToggleBoard, InitialBoard):
     else:
         print("\nEquippable Item on tile: None")
 
-    moveset = input("Enter move:").lower()
+    moveset = input("Enter move/s:").lower()
     
     for move in moveset:
         if move not in ("w", "a", "s", "d", "!", "q", "p"):
@@ -329,7 +330,7 @@ def BurnTree(i, j):
                 BurnTree(i+adj[0], j+adj[1])
 
 def Space(yMoveVal, xMoveVal, Player, InitialPlayer, DisplayBoard, InitialBoard, ToggleBoard):
-    Spacetiles = ("　", "🍄", "🌲", "🪨 ", "🧑")
+    Spacetiles = ("　", "🍄", "🌲", "🪨", "🧑")
     if InitialBoard[Player["yPos"]][Player["xPos"]] in Spacetiles:
         DisplayBoard[Player["yPos"]][Player["xPos"]] = "　"
          
@@ -382,14 +383,14 @@ def movement(yMoveVal, xMoveVal, Player, InitialPlayer, DisplayBoard, InitialBoa
             Loss(Player, DisplayBoard)
 
     #------------------------rock-------------------------------------------#
-    elif DisplayBoard[Player["yPos"] + yMoveVal][Player["xPos"] + xMoveVal] == "🪨 ":
-        Avoid = ("🍄", "🪨 ", "🪓", "🔥", "🌲")
+    elif DisplayBoard[Player["yPos"] + yMoveVal][Player["xPos"] + xMoveVal] == "🪨":
+        Avoid = ("🍄", "🪨", "🪓", "🔥", "🌲")
         if DisplayBoard[Player["yPos"] + (yMoveVal*2)][Player["xPos"] + (xMoveVal*2)] not in Avoid:
             if DisplayBoard[Player["yPos"] + (yMoveVal*2)][Player["xPos"] + (xMoveVal*2)] == "🟦":
                 DisplayBoard[Player["yPos"] + (yMoveVal*2)][Player["xPos"] + (xMoveVal*2)] = "⬜"
                 Space(yMoveVal, xMoveVal, Player, InitialPlayer, DisplayBoard, InitialBoard, ToggleBoard)
             else:
-                DisplayBoard[Player["yPos"] + (yMoveVal*2)][Player["xPos"] + (xMoveVal*2)] = "🪨 "
+                DisplayBoard[Player["yPos"] + (yMoveVal*2)][Player["xPos"] + (xMoveVal*2)] = "🪨"
                 Space(yMoveVal, xMoveVal, Player, InitialPlayer, DisplayBoard, InitialBoard, ToggleBoard)
 
     #------------------------Tree-------------------------------------------#

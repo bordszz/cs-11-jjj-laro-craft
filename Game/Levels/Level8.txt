@@ -1,4 +1,5 @@
-r = 11, c = 16
+r = 11; c = 16
+
 TTTTTTTTTTTTTTTT
 T+..~~..T+T....T
 T..~~...TTT....T
