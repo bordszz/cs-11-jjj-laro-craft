@@ -9,9 +9,16 @@
     - Windows: Command Prompt / Powershell
     - MacOS: Terminal
     - Linux: Terminal / Terminal Emulator
-4. Access the game folder through the terminal (Tutorial: https://www.youtube.com/watch?v=DsAdxr5yLxQ )
-5. Run the command 'python3 -m shroom_raider.py' to launch the game with a base map
-6. To access different Levels, add '-f Level(number).txt' to the previous command (Example: 'python3 -m shroom_raider.py -f Level3.txt)
+4. Access the game folder through the terminal (Tut: https://www.youtube.com/watch?v=DsAdxr5yLxQ )
+
+    ‼️ Your terminal should look something like this:
+
+        YourPC@something Game % <ur cursor/where u type>
+
+    Note that you should be in the 'Game' folder (for the base game)
+
+5. Run the command 'python3 -m shroom_raider.py' or 'python3 -m shroom_raider' to launch the game with a base map
+6. To access different Levels, add '-f Levels/Level(number).txt' to the previous command (Example: 'python3 -m shroom_raider.py -f Levels/Level3.txt)
 
 ### II. Objective: 🔍
 Your objective in LaroCraft is to collect all mushrooms present in the map!
@@ -37,8 +44,8 @@ To **QUIT** the game, **enter 'Q'**
     DLC                            #GAME + BONUS FEATURES
     |---leaderboard                #for the leaderboard feature
     |-------leaderboard.json
-    |---levels                     #Folder with text files for Levels 1-15
-    |-------level(1-15).txt
+    |---levels                     #Folder with text files for Levels 0-15
+    |-------level(0-15).txt
     |---game_styles.tcss           #For the GUI feature
     |---output.txt                 #the output if moves are done in 
     |                                   the terminal commmand
@@ -99,6 +106,13 @@ The algorithm was possible thanks to these functions/function blocks:
 
 
 ## UNIT TESTING 🤖
+‼️ For pytest to work, please ensure you have pytest installed by running this code in your terminal:
+
+    pip install pytest
+
+or
+
+    pip3 install pytest
 ### I. Current Unit Tests
 The following unit tests can be seen in the test_Scripts.py file:
 
@@ -151,11 +165,19 @@ You can test your added case by running this command in your terminal:
 ## BONUS FEATURES 🔥😲
 For our project, the following bonus features were added on top of the base game:
 #### 1. Main Menu and User Interface (DLC)
+- using tcss!
 #### 2. Exit function (implemented in base game also)
 #### 3. Leaderboard (DLC)
+- Stores local scores and asks for the player's nickname
 #### 5. 2nd Character (DLC)
+- Inspired by Fireboy and Watergirl!
 
-To access the DLC features, please download the following:
-- Textual (link/tut)
+‼️ To access the DLC features, please ensure that you have Textual downloaded by running this command in your terminal:
 
-Then, in the terminal, navigate to the DLC folder instead of the Game folder. There, you can run the same 'python3 -m shroom_raider.py' command and the DLC game should launch. 
+    pip install textual
+
+or 
+
+    pip3 install textual
+
+Then, in the terminal, navigate to the **DLC folder** instead of the Game folder. There, you can run the same 'python3 -m shroom_raider' or 'python3 -m shroom_raider.py' command and the DLC game should launch. 
