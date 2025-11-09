@@ -10,8 +10,8 @@
     - MacOS: Terminal
     - Linux: Terminal / Terminal Emulator
 4. Access the game folder through the terminal (Tutorial: https://www.youtube.com/watch?v=DsAdxr5yLxQ )
-5. Run the command 'python3 -m Scripts.py' to launch the game with a base map
-6. To access different Levels, add '-f Level(number).txt' to the previous command (Example: 'python3 -m Scripts.py -f Level3.txt)
+5. Run the command 'python3 -m shroom_raider.py' to launch the game with a base map
+6. To access different Levels, add '-f Level(number).txt' to the previous command (Example: 'python3 -m shroom_raider.py -f Level3.txt)
 
 ### II. Objective: 🔍
 Your objective in LaroCraft is to collect all mushrooms present in the map!
@@ -34,14 +34,22 @@ To **QUIT** the game, **enter 'Q'**
 
 ## ABOUT THE CODE 🤓
 ### I. File Organization 📂
-    Game                        #GAME FOLDER !!
-        __pycache__             #dont mind!
-        Levels                  #Folder containing text files for Levels 1-11
-            Level(1-11).txt
-        Output.txt              #the output if moves are done in the terminal commmand
-        Scripts.py              #MAIN GAME PROGRAM !!
-        test_Scripts.py         #for pytests
-    .gitignore                  #ignore!
+    DLC                            #GAME + BONUS FEATURES
+        leaderboard                #for the leaderboard feature
+            leaderboard.json
+        levels                     #Folder containing text files for Levels 1-15
+            level(1-15).txt
+        game_styles.tcss           #For the GUI feature
+        output.txt                 #the output if moves are done in the terminal commmand
+        shroom_raider.py           #DLC GAME PROGRAM !!
+    Game                           #BASE GAME FOLDER !!
+        Levels                     #Folder containing text files for Levels 1-15
+            Level(1-15).txt
+        Output.txt                 #the output if moves are done in the terminal commmand
+        shroom_raider.py           #MAIN GAME PROGRAM !!
+        test_shroom_raider.py      #for pytests
+    README.md                      #where you are rn 
+
 ### II. Algorithm
 I. Interactive Mode (moves are not pre-inputted via the terminal command)
 1. The Map 🗺️
@@ -138,9 +146,9 @@ You can test your added case by running this command in your terminal:
 
 ## BONUS FEATURES 🔥😲
 For our project, the following bonus features were added on top of the base game:
-#### 1. Main Menu
-#### 2. Exit function
-#### 3. Leaderboard
-#### 4. User Interface
-#### 5. Watergirl??
+#### 1. Main Menu and User Interface (DLC)
+#### 2. Exit function (implemented in base game also)
+#### 3. Leaderboard (DLC)
+#### 5. 2nd Character (DLC)
 
+To access the DLC features, in the terminal, navigate to the DLC folder instead of the Game folder. There, you can run the same 'python3 -m shroom_raider.py' command and the DLC game should launch. 

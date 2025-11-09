@@ -1,0 +1,9 @@
+r = 7; c = 7
+
+TTTTTTT
+TL.*..T
+T.TTT.T
+T.T+TOT
+T.TTT.T
+T.....T
+TTTTTTT
