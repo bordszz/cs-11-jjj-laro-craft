@@ -35,19 +35,23 @@ To **QUIT** the game, **enter 'Q'**
 ## ABOUT THE CODE 🤓
 ### I. File Organization 📂
     DLC                            #GAME + BONUS FEATURES
-        leaderboard                #for the leaderboard feature
-            leaderboard.json
-        levels                     #Folder containing text files for Levels 1-15
-            level(1-15).txt
-        game_styles.tcss           #For the GUI feature
-        output.txt                 #the output if moves are done in the terminal commmand
-        shroom_raider.py           #DLC GAME PROGRAM !!
+    |---leaderboard                #for the leaderboard feature
+    |-------leaderboard.json
+    |---levels                     #Folder with text files for Levels 1-15
+    |-------level(1-15).txt
+    |---game_styles.tcss           #For the GUI feature
+    |---output.txt                 #the output if moves are done in 
+    |                                   the terminal commmand
+    |---shroom_raider.py           #DLC GAME PROGRAM !!
+
     Game                           #BASE GAME FOLDER !!
-        Levels                     #Folder containing text files for Levels 1-15
-            Level(1-15).txt
-        Output.txt                 #the output if moves are done in the terminal commmand
-        shroom_raider.py           #MAIN GAME PROGRAM !!
-        test_shroom_raider.py      #for pytests
+    |---Levels                     #Folder with text files for Levels 1-15
+    |-------Level(1-15).txt
+    |---Output.txt                 #the output if moves are done in 
+    |                                   the terminal commmand
+    |---shroom_raider.py           #MAIN GAME PROGRAM !!
+    |---test_shroom_raider.py      #for pytests
+
     README.md                      #where you are rn 
 
 ### II. Algorithm
@@ -151,4 +155,7 @@ For our project, the following bonus features were added on top of the base game
 #### 3. Leaderboard (DLC)
 #### 5. 2nd Character (DLC)
 
-To access the DLC features, in the terminal, navigate to the DLC folder instead of the Game folder. There, you can run the same 'python3 -m shroom_raider.py' command and the DLC game should launch. 
+To access the DLC features, please download the following:
+- Textual (link/tut)
+
+Then, in the terminal, navigate to the DLC folder instead of the Game folder. There, you can run the same 'python3 -m shroom_raider.py' command and the DLC game should launch. 
