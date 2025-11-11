@@ -1,9 +1,16 @@
-r = 7; c = 7
+r = 14; c = 29
 
-TTTTTTT
-TL.T.OT
-T..T+.T
-T.TTT.T
-T.xT..T
-T..T..T
-TTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TL.R..........R..........R.OT
+T.............R.............T
+T.TTTT..~~~...R...~~~..TTTT.T
+T.T.....~~~.......~~~.....T.T
+T.T..+..~~~...+...~~~..+..T.T
+T.TTTT..~~~.......~~~..TTTT.T
+T.......~~~.......~~~.......T
+TTTTTTTTTTTT.R.RTTTTTTTTTTTTT
+T.........R.......R.........T
+T..+......R...+...R......+..T
+T.........R.......R.........T
+T.........R.......R.........T
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTT

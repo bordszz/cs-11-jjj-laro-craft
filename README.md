@@ -17,8 +17,8 @@
 
     Note that you should be in the 'Game' folder (for the base game)
 
-5. Run the command 'python3 -m shroom_raider.py' or 'python3 -m shroom_raider' to launch the game with a base map
-6. To access different Levels, add '-f Levels/Level(number).txt' to the previous command (Example: 'python3 -m shroom_raider.py -f Levels/Level3.txt)
+5. Run the command 'python3 shroom_raider.py' or 'python3 -m shroom_raider' to launch the game with a base map
+6. To access different Levels, add '-f Levels/Level(number).txt' to the previous command (Example: 'python3 -m shroom_raider -f Levels/Level3.txt)
 
 ### II. Objective: 🔍
 Your objective in LaroCraft is to collect all mushrooms present in the map!
@@ -77,11 +77,19 @@ I. Interactive Mode (moves are not pre-inputted via the terminal command)
 - The map/board is printed with the letters replaced with emojis
 - The game asks for the player's input
 - The board is updated accordingly, win conditions are checked to see if the game has ended or not
-- if game is won, program ends, else the loop repeats
+- if game is won, program ends, else the main loop repeats
 - if a player dies, program ends
 
 II. Terminal Mode (pre-moves are inputted)
-- In the terminal mode, instead of the user being asked for moves to update the map live, pre-moves are inputted and the output is the final state of the board.
+- In the terminal mode, instead of the user being asked for moves to update the map live, pre-moves are inputted in this format:
+
+        python3 shroom_raider.py -f Levels/Level(number).txt -m <string_of_moves> -o Output.txt
+    
+    or
+
+        python3 -m shroom_raider -f Levels/Level(number).txt -m <string_of_moves> -o Output.txt
+
+    The result should alter the Output.txt file to show if a level is cleared or not, and show what the board would look like after the string of moves.
 
 ### III. Important Game Functions 🤓
 The algorithm was possible thanks to these functions/function blocks:
@@ -165,12 +173,17 @@ You can test your added case by running this command in your terminal:
 ## BONUS FEATURES 🔥😲
 For our project, the following bonus features were added on top of the base game:
 #### 1. Main Menu and User Interface (DLC)
-- using tcss!
-#### 2. Exit function (implemented in base game also)
+- An interactive UI for the game that displays a play button, different levels, and even a leaderboard (more on this)
+#### 2. Exit function
+- To exit the game, enter 'Q' 
 #### 3. Leaderboard (DLC)
-- Stores local scores and asks for the player's nickname
+- Implemented by creating a separated .json file to keep track of local scores
+- Stores local scores under a inputted nickname and ranks these scores by least amount of moves used
+
 #### 5. 2nd Character (DLC)
 - Inspired by Fireboy and Watergirl!
+- In the DLC, 2 players are introduced 
+- to control the players, P1 uses W/A/S/D/T while P2 uses I/J/K/L/P
 
 ‼️ To access the DLC features, please ensure that you have Textual downloaded by running this command in your terminal:
 
@@ -180,4 +193,4 @@ or
 
     pip3 install textual
 
-Then, in the terminal, navigate to the **DLC folder** instead of the Game folder. There, you can run the same 'python3 -m shroom_raider' or 'python3 -m shroom_raider.py' command and the DLC game should launch. 
+Then, in the terminal, navigate to the **DLC folder** instead of the Game folder. There, you can run the same 'python3 -m shroom_raider' or 'python3 shroom_raider.py' command and the DLC game should launch. 

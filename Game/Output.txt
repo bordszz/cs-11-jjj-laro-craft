@@ -1,7 +1,9 @@
 No Clear
-r = 15; c = 14
-TTTTTTTTTTTTTT
-T............T
-T...L..++~~+.T
-T............T
-TTTTTTTTTTTTTT
+r = 7; c = 7
+TTTTTTT
+T....RT
+T..R.+T
+T..R..T
+T.R+.LT
+T...R.T
+TTTTTTT

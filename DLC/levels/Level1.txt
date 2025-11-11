@@ -1,17 +1,13 @@
-r = 15; c = 15
+r = 11; c = 30
 
-TTTTTTTTTTTTTTT
-T.............T
-T.............T
-T.L..++.....O.T
-T.............T
-T......+......T
-T.............T
-T.............T
-T........++...T
-T..+..........T
-T....+........T
-T.............T
-T.............T
-T........+....T
-TTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TL..........................OT
+T.TTTTTTTTT........TTTTTTTTT.T
+T.T.......T........T.......T.T
+T.T...+...T........T...+...T.T
+T.T.......TTTT...TTTT......T.T
+T.TTTTT................TTTTT.T
+T.....T...TTTTTTTTTT...T.....T
+T..+..T...T........T...T..+..T
+T.....T...T........T...T.....T
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT

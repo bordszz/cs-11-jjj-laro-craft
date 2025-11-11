@@ -1,9 +1,15 @@
-r = 7; c = 7
+r = 13; c = 30
 
-TTTTTTT
-T...~.T
-T.LR~+T
-T..+~~T
-T.RO..T
-T.....T
-TTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TL..........................OT
+T.TTTT~~~TTTT....TTTT~~~TTTT.T
+T.T......~~~......~~~......T.T
+T.T..+...~~~..+...~~~...+..T.T
+T.TTTT...~~~......~~~...TTTT.T
+T........~~~......~~~........T
+T.TTTTTTTTTT......TTTTTTTTTT.T
+T............~~~~............T
+T.TTTT.......~~~~.......TTTT.T
+T.T..+.......~~~~.......+..T.T
+T.T..........~~~~..........T.T
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT

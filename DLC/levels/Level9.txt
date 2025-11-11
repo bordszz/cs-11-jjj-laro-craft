@@ -1,11 +1,14 @@
-r = 9; c = 13
+r = 12; c = 29
 
-TTTTTTTTTTTTT
-T...........T
-T.TTTTTTT...T
-T.T+....T.L.T
-T.T.TTT.T...T
-T.T.T+T.T...T
-T...T.T.....T
-T.x.....+..OT
-TTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TL...........R.............OT
+T............R..............T
+T...+...R....R........+.....T
+T~~~~~~~~~~~TTTT............T
+T~~~~~~~~~~~T..T............T
+T~~~~~~~~~~~T++T............T
+T........~~~T..T............T
+T...*....~~~TTTT............T
+T........~~~................T
+T...+....~~~............+...T
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTT
